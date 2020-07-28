@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>update tasks</title>
+
+</head>
+<body>
+<h1>do you want Update your Task - " {{task}} "</h1>
+<form method="POST" action="">
+    {% csrf_token %}
+    {% for form in form %}
+        {{form}}
+    {% endfor %}
+    <input type="submit">
+</form>
+</body>
+</html>

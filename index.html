@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>List of items</title>
+</head>
+<body>
+<form method="POST" action="/">
+    {% csrf_token %}
+    {% for form in forms %}
+        {{form}}
+    {% endfor %}
+    <input type="submit">
+</form>
+
+<hr>
+{% for tasks in items %}
+    <hr>
+    <div>
+        {% if tasks.complete %}
+        <strike>{{tasks}}</strike>
+        {% else %}
+        {{tasks}}
+        {% endif %}
+        <a href="update/{{tasks.id}}">Edit</a>
+        <a href="delete/{{tasks.id}}">Delete</a>
+    </div>
+{% endfor %}
+    <hr>
+</body>
+</html>
